@@ -1,0 +1,106 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "build"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "react/prop-types": [
+      "off"
+    ],
+    "react/jsx-equals-spacing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-key": "error",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "parens-new-line"
+      }
+    ],
+    "react/jsx-boolean-value": [
+      "error",
+      "never"
+    ],
+    "react/display-name": [
+      "off"
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/array-type": [
+      "warn",
+      {
+        "default": "array-simple"
+      }
+    ],
+    "@typescript-eslint/prefer-for-of": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/interface-name": "off",
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "max-classes-per-file": "off",
+    "member-ordering": "off",
+    "only-arrow-functions": "off",
+    "object-literal-sort-keys": "off",
+    "one-variable-per-declaration": [
+      "off",
+      "ignore-for-loop"
+    ],
+    "curly": "error",
+    "member-access": "off",
+    "eofline": "off",
+    "no-console": "off",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "trailing-comma": "off",
+    "whitespace": "off",
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ]
+  }
+}
