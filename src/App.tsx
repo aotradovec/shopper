@@ -1,8 +1,9 @@
 import { Box, Divider } from '@material-ui/core';
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Header } from './components/Header';
-import { Products } from './components/Products';
+import { Cart } from './views/Cart';
+import { Products } from './views/Products';
 
 export function App() {
   return (
@@ -19,12 +20,13 @@ export function App() {
           }}
         />
         <Switch>
-          <Route path="/">
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/">
             <Products />
           </Route>
-          <Route path="/cart">
-            <React.Fragment />
-          </Route>
+          <Redirect to="/" />
         </Switch>
       </Box>
     </BrowserRouter>
