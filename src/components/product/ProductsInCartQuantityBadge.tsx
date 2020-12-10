@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useProductStore } from '../../store/ProductStore';
 
-export const ProductsQuantityCountBadge = observer((props: BadgeProps) => {
+export const ProductsInCartQuantityBadge = observer((props: BadgeProps) => {
   const productStore = useProductStore();
 
   return (

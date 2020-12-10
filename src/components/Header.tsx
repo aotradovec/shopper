@@ -2,7 +2,7 @@ import { Box, Typography } from '@material-ui/core';
 import { CartVariant } from 'mdi-material-ui';
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { ProductsQuantityCountBadge } from './product/ProductsQuantityCountBadge';
+import { ProductsInCartQuantityBadge } from './product/ProductsInCartQuantityBadge';
 
 export function Header() {
   const history = useHistory();
@@ -25,9 +25,9 @@ export function Header() {
         to="/cart"
         style={{ color: 'black' }}
       >
-        <ProductsQuantityCountBadge>
+        <ProductsInCartQuantityBadge>
           <CartVariant />
-        </ProductsQuantityCountBadge>
+        </ProductsInCartQuantityBadge>
       </Link>
     </Box>
   );
