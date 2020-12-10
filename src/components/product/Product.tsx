@@ -16,7 +16,7 @@ export function Product(props: {
         display: 'flex',
         flexDirection: 'column',
         padding: '1rem',
-        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0 12px 1px',
+        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0 6px 1px',
         borderRadius: '12.5px'
       }}
     >
@@ -24,6 +24,7 @@ export function Product(props: {
         <img
           src={product.imageUrl}
           alt={product.name}
+          loading="lazy"
           style={{
             height: '100%',
             width: '100%',
@@ -35,6 +36,7 @@ export function Product(props: {
       <Typography
         variant="subtitle1"
         style={{
+          flexGrow: 1,
           lineHeight: 1.25,
           marginBottom: '1rem'
         }}

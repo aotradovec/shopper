@@ -51,6 +51,7 @@ export const CartProduct = observer((props: {
 
             props.changeQuantity(value);
           },
+          min: 1,
           style: {
             padding: '0.5rem 0.25rem'
           }

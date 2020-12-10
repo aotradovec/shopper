@@ -18,7 +18,13 @@ export function ProductStoreProvider(props: PropsWithChildren<unknown>) {
   const store = useLocalObservable<ProductStore>(() => ({
     productsInCart: [],
     get productsInCartQuantity() {
-      return this.productsInCart.length;
+      let quantity = 0;
+
+      for (const product of this.productsInCart) {
+        quantity += product.quantity;
+      }
+
+      return quantity;
     },
     addToCart(product) {
       const productInCart = this.productsInCart.find(({ id }) => product.id === id);
@@ -40,12 +46,10 @@ export function ProductStoreProvider(props: PropsWithChildren<unknown>) {
       }
     },
     changeQuantityInCart(productId, quantity) {
-      if (quantity > 0) {
-        const productIndex = this.productsInCart.findIndex(({ id }) => productId === id);
+      const product = this.productsInCart.find(({ id }) => productId === id);
 
-        this.productsInCart[productIndex].quantity = quantity;
-      } else {
-        this.removeFromCart(productId);
+      if (product) {
+        product.quantity = Math.max(1, quantity);
       }
     }
   }));
