@@ -1,12 +1,13 @@
 import { Button, Typography } from '@material-ui/core';
 import { Cart } from 'mdi-material-ui';
 import React from 'react';
+import type { Product as ProductType } from '../types';
 
 export function Product(props: {
-  name: string;
-  imageUrl: string;
-  price: number;
+  product: ProductType
 }) {
+  const { product } = props;
+
   return (
     <div
       style={{
@@ -20,8 +21,8 @@ export function Product(props: {
       }}
     >
       <img
-        src={props.imageUrl}
-        alt={props.name}
+        src={product.imageUrl}
+        alt={product.name}
         style={{
           width: 'auto',
           height: '14rem',
@@ -36,7 +37,7 @@ export function Product(props: {
           marginBottom: '1rem'
         }}
       >
-        {props.name}
+        {product.name}
       </Typography>
       <div
         style={{
@@ -45,7 +46,7 @@ export function Product(props: {
         }}
       >
         <Typography variant="h5">
-          {props.price} $
+          {product.price} $
         </Typography>
         <Button
           variant="contained"

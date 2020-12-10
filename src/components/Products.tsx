@@ -18,9 +18,12 @@ export function Products() {
       {data.map((product) => (
         <Product
           key={product.id}
-          name={product.title}
-          imageUrl={product.image}
-          price={product.price}
+          product={{
+            id: product.id,
+            name: product.title,
+            imageUrl: product.image,
+            price: product.price
+          }}
         />
       ))}
     </React.Fragment>
