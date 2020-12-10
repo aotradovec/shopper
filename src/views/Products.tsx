@@ -2,6 +2,7 @@ import { CircularProgress, Grid } from '@material-ui/core';
 import React from 'react';
 import { useFetch } from 'use-http/dist/esm';
 import { Product } from '../components/product/Product';
+import { envVariables } from '../env';
 
 type ProductsApiData = Array<{
   id: number;
@@ -14,11 +15,7 @@ type ProductsApiData = Array<{
 
 
 export function Products() {
-  const { loading, data = [] } = useFetch<ProductsApiData>(
-    'https://fakestoreapi.com/products',
-    {},
-    []
-  );
+  const { loading, data = [] } = useFetch<ProductsApiData>(envVariables.PRODUCTS_API_URL, {}, []);
 
   return (
     <Grid container>
