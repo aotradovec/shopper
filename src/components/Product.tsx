@@ -1,12 +1,14 @@
 import { Button, Typography } from '@material-ui/core';
 import { Cart } from 'mdi-material-ui';
 import React from 'react';
+import { useProductStore } from '../store/ProductStore';
 import type { Product as ProductType } from '../types';
 
 export function Product(props: {
   product: ProductType
 }) {
   const { product } = props;
+  const productStore = useProductStore();
 
   return (
     <div
@@ -52,6 +54,7 @@ export function Product(props: {
           variant="contained"
           color="primary"
           startIcon={<Cart />}
+          onClick={() => productStore.addToCart(product)}
         >
           Koupit
         </Button>
