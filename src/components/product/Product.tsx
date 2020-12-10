@@ -1,4 +1,4 @@
-import { Button, Typography } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import { Cart } from 'mdi-material-ui';
 import React from 'react';
 import { useProductStore } from '../../store/ProductStore';
@@ -15,25 +15,25 @@ export function Product(props: {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        margin: '1rem',
         padding: '1rem',
-        width: '18rem',
         boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0 12px 1px',
         borderRadius: '12.5px'
       }}
     >
-      <img
-        src={product.imageUrl}
-        alt={product.name}
-        style={{
-          width: 'auto',
-          height: '14rem',
-          objectFit: 'contain',
-          marginBottom: '0.75rem'
-        }}
-      />
+      <Box height="15rem">
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          style={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain',
+            marginBottom: '0.75rem'
+          }}
+        />
+      </Box>
       <Typography
-        variant="h6"
+        variant="subtitle1"
         style={{
           lineHeight: 1.25,
           marginBottom: '1rem'
@@ -47,7 +47,7 @@ export function Product(props: {
           justifyContent: 'space-between'
         }}
       >
-        <Typography variant="h5">
+        <Typography variant="h6">
           {product.price} $
         </Typography>
         <Button

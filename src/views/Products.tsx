@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import { Product } from '../components/product/Product';
 
@@ -14,18 +15,27 @@ export function Products() {
   ];
 
   return (
-    <React.Fragment>
+    <Grid container>
       {data.map((product) => (
-        <Product
+        <Grid
           key={product.id}
-          product={{
-            id: product.id,
-            name: product.title,
-            imageUrl: product.image,
-            price: product.price
-          }}
-        />
+          item
+          xl={2}
+          lg={3}
+          md={4}
+          sm={6}
+          xs={12}
+        >
+          <Product
+            product={{
+              id: product.id,
+              name: product.title,
+              imageUrl: product.image,
+              price: product.price
+            }}
+          />
+        </Grid>
       ))}
-    </React.Fragment>
+    </Grid>
   );
 }

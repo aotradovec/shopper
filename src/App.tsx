@@ -9,7 +9,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Box
-        width="75%"
+        width="95%"
         margin="auto"
         padding="0.5rem 0"
       >
