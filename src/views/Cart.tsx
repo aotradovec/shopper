@@ -2,7 +2,7 @@ import { Box, IconButton, Typography } from '@material-ui/core';
 import { ArrowLeft } from 'mdi-material-ui';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CartProducts } from '../components/CartProducts';
+import { CartProductsTable } from '../components/CartProductsTable';
 
 export function Cart() {
   const history = useHistory();
@@ -26,7 +26,7 @@ export function Cart() {
           Košík
         </Typography>
       </Box>
-      <CartProducts />
+      <CartProductsTable />
     </div>
   );
 }
