@@ -6,9 +6,8 @@ interface ProductStore {
   productsInCart: ProductInCart[];
   productsInCartQuantity: number;
   addToCart: (product: Product) => void;
-  removeFromCart: (productId: Product['id']) => void;
-  increaseQuantityInCart: (productId: Product['id']) => void;
-  decreaseQuantityInCart: (productId: Product['id']) => void;
+  removeFromCart: (productId: ProductInCart['id']) => void;
+  changeQuantityInCart: (productId: ProductInCart['id'], quantity: number) => void;
 }
 
 const ProductStoreContext = createContext<ProductStore | null>(null);
@@ -19,13 +18,7 @@ export function ProductStoreProvider(props: PropsWithChildren<unknown>) {
   const store = useLocalObservable<ProductStore>(() => ({
     productsInCart: [],
     get productsInCartQuantity() {
-      let quantity = 0;
-
-      for (const product of this.productsInCart) {
-        quantity += product.quantity;
-      }
-
-      return quantity;
+      return this.productsInCart.length;
     },
     addToCart(product) {
       const productInCart = this.productsInCart.find(({ id }) => product.id === id);
@@ -46,22 +39,13 @@ export function ProductStoreProvider(props: PropsWithChildren<unknown>) {
         this.productsInCart.splice(productInCartIndex, 1);
       }
     },
-    increaseQuantityInCart(productId) {
-      const product = this.productsInCart.find(({ id }) => productId === id);
+    changeQuantityInCart(productId, quantity) {
+      if (quantity > 0) {
+        const productIndex = this.productsInCart.findIndex(({ id }) => productId === id);
 
-      if (product) {
-        product.quantity += 1;
-      }
-    },
-    decreaseQuantityInCart(productId) {
-      const productIndex = this.productsInCart.findIndex(({ id }) => productId === id);
-
-      if (productIndex >= 0) {
-        this.productsInCart[productIndex].quantity -= 1;
-
-        if (this.productsInCart[productIndex].quantity <= 0) {
-          this.productsInCart.splice(productIndex, 1);
-        }
+        this.productsInCart[productIndex].quantity = quantity;
+      } else {
+        this.removeFromCart(productId);
       }
     }
   }));
