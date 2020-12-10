@@ -1,6 +1,7 @@
 import { Box, Typography } from '@material-ui/core';
 import { CartVariant } from 'mdi-material-ui';
 import React from 'react';
+import { ProductsQuantityCountBadge } from './ProductsQuantityCountBadge';
 
 export function Header() {
   return (
@@ -13,7 +14,9 @@ export function Header() {
       <Typography variant="h4">
         Shopper
       </Typography>
-      <CartVariant />
+      <ProductsQuantityCountBadge>
+        <CartVariant />
+      </ProductsQuantityCountBadge>
     </Box>
   );
 }

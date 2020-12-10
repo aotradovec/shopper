@@ -4,7 +4,7 @@ import { Product, ProductInCart } from '../types';
 
 interface ProductStore {
   productsInCart: ProductInCart[];
-  numberOfProductsInCart: number;
+  productsInCartQuantity: number;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: Product['id']) => void;
   increaseQuantityInCart: (productId: Product['id']) => void;
@@ -18,7 +18,7 @@ export const useProductStore = () => useContext(ProductStoreContext) as ProductS
 export function ProductStoreProvider(props: PropsWithChildren<unknown>) {
   const store = useLocalObservable<ProductStore>(() => ({
     productsInCart: [],
-    get numberOfProductsInCart() {
+    get productsInCartQuantity() {
       let quantity = 0;
 
       for (const product of this.productsInCart) {
