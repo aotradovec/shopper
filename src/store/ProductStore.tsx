@@ -5,6 +5,7 @@ import { Product, ProductInCart } from '../types';
 interface ProductStore {
   productsInCart: ProductInCart[];
   productsInCartQuantity: number;
+  productsInCartPrice: number;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: ProductInCart['id']) => void;
   changeQuantityInCart: (productId: ProductInCart['id'], quantity: number) => void;
@@ -25,6 +26,15 @@ export function ProductStoreProvider(props: PropsWithChildren<unknown>) {
       }
 
       return quantity;
+    },
+    get productsInCartPrice() {
+      let price = 0;
+
+      for (const product of this.productsInCart) {
+        price += product.price * product.quantity;
+      }
+
+      return price;
     },
     addToCart(product) {
       const productInCart = this.productsInCart.find(({ id }) => product.id === id);

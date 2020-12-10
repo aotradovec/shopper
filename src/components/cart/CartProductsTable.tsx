@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { useProductStore } from '../store/ProductStore';
+import { useProductStore } from '../../store/ProductStore';
 import { CartProductRow } from './CartProductRow';
 
 export const CartProductsTable = observer(() => {

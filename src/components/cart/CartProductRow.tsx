@@ -2,7 +2,8 @@ import { IconButton, TextField, Typography } from '@material-ui/core';
 import { Close } from 'mdi-material-ui';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { ProductInCart } from '../types';
+import { roundTo } from '../../helpers/roundTo';
+import { ProductInCart } from '../../types';
 
 export const CartProductRow = observer((props: {
   product: ProductInCart;
@@ -71,7 +72,7 @@ export const CartProductRow = observer((props: {
         }}
       >
         <Typography>
-          {product.price} $
+          {roundTo(product.price * product.quantity, 2)} $
         </Typography>
       </td>
       <td>

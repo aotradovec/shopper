@@ -2,7 +2,8 @@ import { Box, IconButton, Typography } from '@material-ui/core';
 import { ArrowLeft } from 'mdi-material-ui';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CartProductsTable } from '../components/CartProductsTable';
+import { CartPrice } from '../components/cart/CartPrice';
+import { CartProductsTable } from '../components/cart/CartProductsTable';
 
 export function Cart() {
   const history = useHistory();
@@ -27,6 +28,7 @@ export function Cart() {
         </Typography>
       </Box>
       <CartProductsTable />
+      <CartPrice />
     </div>
   );
 }

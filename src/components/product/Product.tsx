@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from '@material-ui/core';
 import { Cart } from 'mdi-material-ui';
 import React from 'react';
+import { roundTo } from '../../helpers/roundTo';
 import { useProductStore } from '../../store/ProductStore';
 import type { Product as ProductType } from '../../types';
 
@@ -50,7 +51,7 @@ export function Product(props: {
         }}
       >
         <Typography variant="h6">
-          {product.price} $
+          {roundTo(product.price, 2)} $
         </Typography>
         <Button
           variant="contained"
